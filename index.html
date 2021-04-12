@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans:300' rel='stylesheet'>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 550px;  /* The height is 400 pixels */
+        width: 60%;  /* The width is the width of the web page */
+        margin-left: auto;
+        margin-right: auto;
+        border: 5px solid black;
+       }
+      body {
+        font-family: 'Open Sans';font-size: 22px;
+        background-color: #ebf9ff;
+      }
+      h1{
+        margin-bottom: -6px;
+      }
+      p{
+        margin-top: -6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><center><strong>H2OnCampus</strong></center></h1>
+    <p><center>Find a water bottle refilling station near you.</center></p>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+
+var x = document.getElementById('map');
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(initMap);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+ 
+ 
+ 
+// Initialize and add the map
+function initMap(position) {
+  var currLoc = {lat: position.coords.latitude, lng: position.coords.longitude};
+ 
+    //put all points
+  var totalStations = 66;
+  var irc = {lat: 34.019606, lng: -118.291011};
+  var pks = {lat: 34.019095, lng: -118.291039};
+  var cap = {lat: 34.026534, lng: -118.289614};
+  var mus = {lat: 34.023016, lng: -118.285226};
+  var rhm = {lat: 34.022677, lng: -118.285211};
+  var thh_outdoor = {lat: 34.022108, lng: -118.284386};
+  var thh = {lat: 34.022117, lng: -118.284665};
+  var jep_outdoor = {lat: 34.022837, lng: -118.283925};
+  var nct = {lat: 34.022063, lng: -118.285298};
+  var mrf = {lat: 34.022276, lng: -118.282509};
+  var wph = {lat: 34.021925, lng: -118.283776};
+  var wph_outdoor = {lat: 34.021849, lng: -118.283550};
+  var sos = {lat: 34.021600, lng: -118.283679};
+  var vkc = {lat: 34.021246, lng: -118.284107};
+  var lvl = {lat: 34.021741, lng: -118.282867};
+  var prb_outdoor= {lat: 34.018976, lng: -118.289447};
+  var bsr = {lat: 34.021514, lng: -118.282275};
+  var irc_outdoor = {lat: 34.019160, lng: -118.290766};
+  var ohe_outdoor = {lat: 34.020821, lng: -118.289683};
+  var dcc = {lat: 34.021643, lng: -118.280687};
+  var stu_outdoor = {lat: 34.020422, lng: -118.28560};
+  var acb_outdoor = {lat: 34.019209, lng: -118.287136};
+  var urh = {lat: 34.021141, lng: -118.280918};
+  var col = {lat: 34.020781, lng: -118.281245};
+  var ptd = {lat: 34.020070, lng: -118.282672};
+  var dml_outdoor = {lat: 34.020092, lng: -118.283284};
+  var dmt = {lat: 34.019692, lng: -118.281975};
+  var dxm = {lat: 34.019579, lng: -118.282517};
+  var tro = {lat: 34.019285, lng: -118.282185};
+  var jkp = {lat: 34.018863, lng: -118.282947};
+  var jff = {lat: 34.018574, lng: -118.282571};
+  var rgl = {lat: 34.019281, lng: -118.283547};
+  var pwe = {lat: 34.018827, lng: -118.283579};
+  var law = {lat: 34.018707, lng: -118.284180};
+  var ahf = {lat: 34.019605, lng: -118.284920};
+  var acc = {lat: 34.019240, lng: -118.285655};
+  var acc_outdoor = {lat: 34.018951, lng: -118.285585};
+  var hed= {lat: 34.020920, lng: -118.287869};
+  var v_outdoor = {lat: 34.025717, lng: -118.284961};
+  var asc= {lat: 34.022322, lng: -118.286195}; 
+  var nbc2 = {lat: 34.025084, lng: -118.284403};
+  var mrc = {lat: 34.024100, lng: -118.284440};
+  var ped= {lat: 34.021530, lng: -118.286281}; 
+  var mhp= {lat: 34.018906, lng: -118.286869}; 
+  var zhs= {lat: 34.019446, lng: -118.286260}; 
+  var nbc1 = {lat: 34.024483, lng: -118.284002};
+  var uvo = {lat: 34.026930, lng: -118.284436};
+  var stu= {lat: 34.020534, lng: -118.285664};
+  var dni= {lat: 34.021649, lng: 131.036};
+  var crc = {lat: 34.025841, lng: -118.284195};
+  var kdc = {lat: 34.023534, lng: -118.285278};
+  var cic = {lat: 34.024635, lng: -118.285508};
+  var mhc = {lat: 34.025838, lng: -118.285610};
+  var eeb= {lat: 34.019914, lng: -118.290235};
+  var den = {lat: 34.024063, lng: -118.286429};
+  var gfs= {lat: 34.071917, lng: -118.292911};
+  var wto = {lat: 34.024645, lng: -118.287663};
+  var koh = {lat: 34.024756, lng: -118.288055};
+  var sal= {lat: 34.019672, lng:  -118.289442};
+  var sgm= {lat: 34.021626, lng: -118.289030};
+  var flt = {lat: 34.024947, lng: -118.288296};
+  var mcb = {lat: 34.021947, lng: -118.289483};
+  var lrc = {lat: 34.024447, lng: -118.288396};
+  var uac = {lat: 34.024002, lng: -118.288434};
+  var kap = {lat: 34.022649, lng: -118.291014};
+  var prb = {lat: 34.018887, lng: -118.289505};
+ 
+ 
+  var iconBase =
+      'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
+ 
+ var directionsService = new google.maps.DirectionsService();
+ var directionsRenderer = new google.maps.DirectionsRenderer();
+ 
+  // The map, centered at your current location
+  var map = new google.maps.Map(
+      x, {zoom: 17, center: currLoc});
+  directionsRenderer.setMap(map);
+  
+  // The marker, positioned at current location
+  var marker = new google.maps.Marker({position: currLoc, map: map});
+  var points = [irc, pks, cap, mus, rhm, thh_outdoor, thh, jep_outdoor, nct, mrf, wph, wph_outdoor, sos, vkc, lvl, prb_outdoor, bsr, irc_outdoor, ohe_outdoor, dcc, stu_outdoor, acb_outdoor, urh, col, ptd, dml_outdoor, dmt, dxm, tro, jkp, jff, rgl, pwe, law, ahf, acc, acc_outdoor, hed, v_outdoor, asc, nbc2, mrc, ped, mhp, zhs, nbc1, stu, dni, crc, kdc, cic, uvo, mhc, eeb, den, gfs, wto, koh, sal, sgm, flt, mcb, lrc, uac, kap, prb];
+ 
+ var secretMessages = ["IRC", "PKS", "CAP", "MUS", "RHM", "THH (outdoors)", "THH", "JEP (outdoors)", "NCT", "MRF", "WPH", "WPH (outdoors)", "SOS", "VKC", "LVL", "PRB (outdoors)", "BSR", "IRC (outdoors)", "OHE (outdoors)", "DCC", "STU (outdoors)", "ACB (outdoors)", "URH", "COL", "PTD", "DML (outdoors)", "DMT", "DXM", "TRO", "JKP", "JFF", "RGL", "PWE", "LAW", "AHF", "ACC", "ACC (outdoors)", "HED", "Village (outdoors)", "ASC", "NBC2", "MRC", "PED", "MHP", "ZHS", "NCB1", "STU", "DNI", "CRC", "KDC", "CIC", "UVO", "MHC", "EEB", "DEN", "GFS", "WTO", "KOH", "SAL", "SGM", "FLT", "MCB", "LRC", "UAC", "KAP", "PRB"];
+ 
+  for(var i = 0; i < totalStations; i++)
+  {
+    var stations = new google.maps.Marker({position: points[i], icon: 'water.png', map: map});
+     attachSecretMessage(stations, secretMessages[i], directionsService, directionsRenderer, currLoc);
+ 
+  }
+  
+ 
+  
+ 
+}
+ 
+ function calcRoute(directionsService, directionsRenderer, currLoc, marker) {
+ //var ircll = new google.maps.LatLng(34.019606, -118.291011);
+ //var prbll = new google.maps.LatLng(34.018887, -118.289505);
+  directionsService.route(
+    {
+      origin: currLoc,
+      destination: marker.position,
+      travelMode: 'WALKING'
+    },
+    function(result, status) {
+    if (status == 'OK') {
+     directionsRenderer.setDirections(result);
+     //window.alert(result.distance);
+    } else {
+     window.alert('Directions request failed due to ' + status);
+   }
+ });
+}
+ 
+function attachSecretMessage(marker, secretMessage, directionsService, directionsRenderer, currLoc) {
+        var infowindow = new google.maps.InfoWindow({
+          content: secretMessage
+        });
+ 
+        marker.addListener('click', function () {
+        infowindow.open(marker.get('map'), marker);
+        calcRoute(directionsService, directionsRenderer, currLoc, marker);
+        });
+      }
+ 
+getLocation();
+ 
+ 
+ 
+ 
+    </script>
+ 
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlBjbLl_6c3WIfD52RyBCfPD1UA1AelyQ
+&callback=initMap">
+    </script>
+  </body>
+</html>
+ 
+ 
+ 
